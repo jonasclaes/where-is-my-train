@@ -41,14 +41,14 @@ export default {
         this.$http.get(`https://trainmapjs.azureedge.net/data/composition/${id}`).then(response => {
           this.composition[id] = response.body
           console.log(this.composition)
-          this.backoff -= 500
+          this.backoff -= 50
           this.compositionFetched++
         }, err => {
           console.log(err)
-          this.backoff -= 500
+          this.backoff -= 50
         });
       }, this.backoff)
-      this.backoff += 500
+      this.backoff += 50
     },
     onUpdate: function(data) {
       let trips = []
